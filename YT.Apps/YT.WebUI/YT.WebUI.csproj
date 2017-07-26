@@ -484,6 +484,23 @@
   <ItemGroup>
     <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YT87s.Business.Implements\YT87s.Business.Implements.csproj">
+      <Project>{5d200911-c3a2-4810-86f9-684d22b46b88}</Project>
+      <Name>YT87s.Business.Implements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YT87s.Business.Service\YT87s.Business.Service.csproj">
+      <Project>{c3129b90-5560-465b-b29b-0eba8b3006ff}</Project>
+      <Name>YT87s.Business.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YT87s.Entities\YT87s.Entities.csproj">
+      <Project>{f75ed447-2119-49be-bb53-0454bee5366d}</Project>
+      <Name>YT87s.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Simple.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

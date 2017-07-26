@@ -11,15 +11,22 @@ namespace YT87s.Entities
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     
     public partial class YTSample
     {
         public string Id { get; set; }
+        [DisplayName("姓名")]
         public string Name { get; set; }
+        [DisplayName("年龄")]
         public Nullable<int> Age { get; set; }
+        [DisplayName("出生日期")]
         public Nullable<System.DateTime> Bir { get; set; }
+        [DisplayName("头像")]
         public string Photo { get; set; }
+        [DisplayName("描述")]
         public string Note { get; set; }
+        [DisplayName("创建时间")]
         public Nullable<System.DateTime> CreateTime { get; set; }
     }
 }
