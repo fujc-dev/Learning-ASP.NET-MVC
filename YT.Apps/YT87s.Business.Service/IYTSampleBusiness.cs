@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YT87s.Entities;
+using YT87s.ViewModels;
 
 namespace YT87s.Business.Service
 {
@@ -15,7 +16,7 @@ namespace YT87s.Business.Service
         /// <param name="pager">JQgrid分页</param>
         /// <param name="queryStr">搜索条件</param>
         /// <returns>列表</returns>
-        List<YTSample> GetList(string queryStr);
+        List<YTSampleViewModel> GetList(string queryStr);
 
         /// <summary>
         /// 创建一个实体
@@ -23,7 +24,7 @@ namespace YT87s.Business.Service
         /// <param name="errors">持久的错误信息</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
-        bool Create(YTSample entity);
+        bool Create(YTSampleViewModel entity);
 
         /// <summary>
         /// 删除一个实体
@@ -39,7 +40,7 @@ namespace YT87s.Business.Service
         /// <param name="errors">持久的错误信息</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
-        bool Edit(YTSample entity);
+        bool Edit(YTSampleViewModel entity);
 
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace YT87s.Business.Service
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>实体</returns>
-        YTSample GetById(string id);
+        YTSampleViewModel GetById(string id);
 
 
         /// <summary>

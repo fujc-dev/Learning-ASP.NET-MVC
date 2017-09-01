@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C3129B90-5560-465B-B29B-0EBA8B3006FF}</ProjectGuid>
+    <ProjectGuid>{91E6458E-3105-4070-8597-58CC59B611F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YT87s.Business.Service</RootNamespace>
-    <AssemblyName>YT87s.Business.Service</AssemblyName>
+    <RootNamespace>YT87s.ViewModels</RootNamespace>
+    <AssemblyName>YT87s.ViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,18 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IYTSampleBusiness.cs" />
+    <Compile Include="YTSampleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\YT87s.Entities\YT87s.Entities.csproj">
-      <Project>{f75ed447-2119-49be-bb53-0454bee5366d}</Project>
-      <Name>YT87s.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YT87s.ViewModels\YT87s.ViewModels.csproj">
-      <Project>{91e6458e-3105-4070-8597-58cc59b611f5}</Project>
-      <Name>YT87s.ViewModels</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

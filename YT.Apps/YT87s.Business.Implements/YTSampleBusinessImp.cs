@@ -7,6 +7,7 @@ using YT87s.Business.Service;
 using YT87s.Database.Implements;
 using YT87s.Database.Service;
 using YT87s.Entities;
+using YT87s.ViewModels;
 
 namespace YT87s.Business.Implements
 {
@@ -22,13 +23,26 @@ namespace YT87s.Business.Implements
         /// <param name="pager">JQgrid分页</param>
         /// <param name="queryStr">搜索条件</param>
         /// <returns>列表</returns>
-        public List<YTSample> GetList(string queryStr)
+        public List<YTSampleViewModel> GetList(string queryStr)
         {
 
-            IQueryable<YTSample> queryData = Rep.GetList(db);
+            List<YTSampleViewModel> listResult = new List<YTSampleViewModel>();
 
-
-            return queryData.ToList();
+            this.Rep.GetList(db).ToList().ForEach((o) =>
+            {
+                var _ = new YTSampleViewModel()
+                {
+                    Id = o.Id,
+                    Age = o.Age,
+                    Bir = o.Bir,
+                    CreateTime = o.CreateTime,
+                    Name = o.Name,
+                    Note = o.Note,
+                    Photo = o.Photo
+                };
+                listResult.Add(_);
+            });
+            return listResult;
         }
 
         /// <summary>
@@ -37,17 +51,30 @@ namespace YT87s.Business.Implements
         /// <param name="errors">持久的错误信息</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
-        public bool Create(YTSample entity)
+        public bool Create(YTSampleViewModel model)
         {
             try
             {
+                YTSample entity = Rep.GetById(model.Id);
+                if (entity != null)
+                {
+                    return false;
+                }
+                entity = new YTSample();
+                entity.Id = model.Id;
+                entity.Name = model.Name;
+                entity.Age = model.Age;
+                entity.Bir = model.Bir;
+                entity.Photo = model.Photo;
+                entity.Note = model.Note;
+                entity.CreateTime = model.CreateTime;
+
                 if (Rep.Create(entity) == 1)
                 {
                     return true;
                 }
                 else
                 {
-
                     return false;
                 }
             }
@@ -89,20 +116,28 @@ namespace YT87s.Business.Implements
         /// <param name="errors">持久的错误信息</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
-        public bool Edit(YTSample entity)
+        public bool Edit(YTSampleViewModel model)
         {
             try
             {
+                YTSample entity = Rep.GetById(model.Id);
+                if (entity == null)
+                {
+                    return false;
+                }
+                entity.Name = model.Name;
+                entity.Age = model.Age;
+                entity.Bir = model.Bir;
+                entity.Photo = model.Photo;
+                entity.Note = model.Note;
                 if (Rep.Edit(entity) == 1)
                 {
                     return true;
                 }
                 else
                 {
-
                     return false;
                 }
-
             }
             catch (Exception ex)
             {
@@ -129,14 +164,22 @@ namespace YT87s.Business.Implements
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>实体</returns>
-        public YTSample GetById(string id)
+        public YTSampleViewModel GetById(string id)
         {
             if (IsExist(id))
             {
+
                 YTSample entity = Rep.GetById(id);
+                YTSampleViewModel model = new YTSampleViewModel();
+                model.Id = entity.Id;
+                model.Name = entity.Name;
+                model.Age = entity.Age;
+                model.Bir = entity.Bir;
+                model.Photo = entity.Photo;
+                model.Note = entity.Note;
+                model.CreateTime = entity.CreateTime;
 
-
-                return entity;
+                return model;
             }
             else
             {

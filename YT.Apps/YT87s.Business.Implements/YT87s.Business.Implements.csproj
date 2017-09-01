@@ -63,6 +63,10 @@
       <Project>{f75ed447-2119-49be-bb53-0454bee5366d}</Project>
       <Name>YT87s.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YT87s.ViewModels\YT87s.ViewModels.csproj">
+      <Project>{91e6458e-3105-4070-8597-58cc59b611f5}</Project>
+      <Name>YT87s.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

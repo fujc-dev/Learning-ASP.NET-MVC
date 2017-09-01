@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,10 +18,10 @@ namespace YT.WebUI.Controllers
             return View();
         }
 
-
+        [Dependency]
+        public IYTSampleBusiness business { get; set; }
         public ActionResult Simple()
         {
-            IYTSampleBusiness business = new YT87s.Business.Implements.YTSampleBusinessImp();
             return View(business.GetList(""));
         }
 
