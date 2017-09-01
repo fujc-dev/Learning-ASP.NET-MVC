@@ -4,6 +4,9 @@ using System.Runtime.Serialization;
 
 namespace YT87s.ViewModels
 {
+    /// <summary>
+    /// 与UI相关的数据模型
+    /// </summary>
     public class YTSampleViewModel
     {
         [Display(Name = "ID")]
