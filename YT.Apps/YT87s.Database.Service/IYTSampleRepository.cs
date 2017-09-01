@@ -12,9 +12,8 @@ namespace YT87s.Database.Service
         /// <summary>
         /// 获取列表
         /// </summary>
-        /// <param name="db">数据库上下文</param>
         /// <returns>数据列表</returns>
-        IQueryable<YTSample> GetList(YT87sEntities db);
+        IQueryable<YTSample> GetList(YT87sEntities db, ref int total, int page, int rows, string sort, string order);
         /// <summary>
         /// 创建一个实体
         /// </summary>

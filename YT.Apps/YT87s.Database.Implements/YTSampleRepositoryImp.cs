@@ -16,9 +16,10 @@ namespace YT87s.Database.Implements
         ///</summary>
         /// <param name="db">数据库上下文</param>
         /// <returns>数据列表</returns>
-        public IQueryable<YTSample> GetList(YT87sEntities db)
+        public IQueryable<YTSample> GetList(YT87sEntities db, ref int total, int page, int rows, string sort = "Id", string order = "desc")
         {
-            IQueryable<YTSample> list = db.YTSample.AsQueryable();
+            IQueryable<YTSample> list = db.YTSample.AsQueryable().OrderByDescending(o => sort);
+            total = list.Count();
             return list;
         }
         /// <summary>

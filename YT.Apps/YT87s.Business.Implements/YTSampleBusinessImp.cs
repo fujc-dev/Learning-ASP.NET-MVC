@@ -17,40 +17,46 @@ namespace YT87s.Business.Implements
 
         IYTSampleRepository Rep = new YTSampleRepositoryImp();
 
-        /// <summary>
-        /// 获取列表
-        /// </summary>
-        /// <param name="pager">JQgrid分页</param>
-        /// <param name="queryStr">搜索条件</param>
-        /// <returns>列表</returns>
-        public List<YTSampleViewModel> GetList(string queryStr)
+        public List<YTSampleViewModel> GetList(int page, int rows, string sort, string order, ref int total)
+        {
+            IQueryable<YTSample> queryData = Rep.GetList(db, ref total, page, rows, sort, order);
+            return CreateModelList(ref queryData, page, rows, ref total);
+        }
+        private List<YTSampleViewModel> CreateModelList(ref IQueryable<YTSample> queryData, int page, int rows, ref int total)
         {
 
-            List<YTSampleViewModel> listResult = new List<YTSampleViewModel>();
-
-            this.Rep.GetList(db).ToList().ForEach((o) =>
+            if (total > 0)
             {
-                var _ = new YTSampleViewModel()
+                if (page <= 1)
                 {
-                    Id = o.Id,
-                    Age = o.Age,
-                    Bir = o.Bir,
-                    CreateTime = o.CreateTime,
-                    Name = o.Name,
-                    Note = o.Note,
-                    Photo = o.Photo
-                };
-                listResult.Add(_);
+                    queryData = queryData.Take(rows);
+                }
+                else
+                {
+                    queryData = queryData.Skip((page - 1) * rows).Take(rows);
+                }
+            }
+            List<YTSampleViewModel> modelList = new List<YTSampleViewModel>();
+
+            queryData.ToList().ForEach((r) =>
+            {
+                var _ = new YTSampleViewModel
+                                                      {
+                                                          Id = r.Id,
+                                                          Name = r.Name,
+                                                          Age = r.Age,
+                                                          Bir = r.Bir,
+                                                          Photo = r.Photo,
+                                                          Note = r.Note,
+                                                          CreateTime = r.CreateTime,
+
+                                                      };
+                modelList.Add(_);
             });
-            return listResult;
+
+            return modelList;
         }
 
-        /// <summary>
-        /// 创建一个实体
-        /// </summary>
-        /// <param name="errors">持久的错误信息</param>
-        /// <param name="model">模型</param>
-        /// <returns>是否成功</returns>
         public bool Create(YTSampleViewModel model)
         {
             try
@@ -84,12 +90,7 @@ namespace YT87s.Business.Implements
                 return false;
             }
         }
-        /// <summary>
-        /// 删除一个实体
-        /// </summary>
-        /// <param name="errors">持久的错误信息</param>
-        /// <param name="id">id</param>
-        /// <returns>是否成功</returns>
+
         public bool Delete(string id)
         {
             try
@@ -110,12 +111,6 @@ namespace YT87s.Business.Implements
             }
         }
 
-        /// <summary>
-        /// 修改一个实体
-        /// </summary>
-        /// <param name="errors">持久的错误信息</param>
-        /// <param name="model">模型</param>
-        /// <returns>是否成功</returns>
         public bool Edit(YTSampleViewModel model)
         {
             try
@@ -146,11 +141,7 @@ namespace YT87s.Business.Implements
                 return false;
             }
         }
-        /// <summary>
-        /// 判断是否存在实体
-        /// </summary>
-        /// <param name="id">主键ID</param>
-        /// <returns>是否存在</returns>
+
         public bool IsExists(string id)
         {
             if (db.YTSample.SingleOrDefault(a => a.Id == id) != null)
@@ -159,11 +150,7 @@ namespace YT87s.Business.Implements
             }
             return false;
         }
-        /// <summary>
-        /// 根据ID获得一个实体
-        /// </summary>
-        /// <param name="id">id</param>
-        /// <returns>实体</returns>
+
         public YTSampleViewModel GetById(string id)
         {
             if (IsExist(id))
@@ -187,14 +174,11 @@ namespace YT87s.Business.Implements
             }
         }
 
-        /// <summary>
-        /// 判断一个实体是否存在
-        /// </summary>
-        /// <param name="id">id</param>
-        /// <returns>是否存在 true or false</returns>
         public bool IsExist(string id)
         {
             return Rep.IsExist(id);
         }
+
+
     }
 }

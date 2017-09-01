@@ -13,10 +13,13 @@ namespace YT87s.Business.Service
         /// <summary>
         /// 获取列表
         /// </summary>
-        /// <param name="pager">JQgrid分页</param>
-        /// <param name="queryStr">搜索条件</param>
-        /// <returns>列表</returns>
-        List<YTSampleViewModel> GetList(string queryStr);
+        /// <param name="page"></param>
+        /// <param name="rows"></param>
+        /// <param name="sort"></param>
+        /// <param name="order"></param>
+        /// <param name="total"></param>
+        /// <returns></returns>
+        List<YTSampleViewModel> GetList(int page, int rows, string sort, string order, ref int total);
 
         /// <summary>
         /// 创建一个实体
