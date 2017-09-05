@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using YT87s.Business.Service;
+using YT87s.Common;
 using YT87s.ViewModels;
 
 namespace YT.WebUI.Controllers
@@ -22,17 +23,14 @@ namespace YT.WebUI.Controllers
         }
 
 
-        public ActionResult Simple()
-        {
-            return View();
-        }
 
         #region WEB API Part
 
-        public JsonResult GetList(Int32 page, Int32 rows, String sort = "Id", String order = "desc")
+
+        public JsonResult GetList(EasyUIGridPager p)
         {
             int total = 0;
-            List<YTSampleViewModel> list = business.GetList(page, rows, sort, order, ref total);
+            List<YTSampleViewModel> list = business.GetList(p.page, p.rows, p.sort, p.order, ref total);
             var json = new
             {
                 total = total,

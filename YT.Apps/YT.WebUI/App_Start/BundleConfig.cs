@@ -19,7 +19,7 @@ namespace YT.WebUI
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryfrom").Include("~/Scripts/jquery.form.js"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/easyuiplus").Include("~/Scripts/jquery.easyui.plus.js"));
+            bundles.Add(new ScriptBundle("~/bundles/easyuiplus").Include("~/Scripts/jquery.easyui.plus.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include("~/Scripts/jquery.validate.unobtrusive.plus.js"));
 

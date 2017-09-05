@@ -195,6 +195,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -450,6 +451,7 @@
     <Content Include="Scripts\easyui\src\jquery.window.js" />
     <Content Include="Scripts\home.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery.easyui.plus.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -501,6 +503,10 @@
       <Project>{c3129b90-5560-465b-b29b-0eba8b3006ff}</Project>
       <Name>YT87s.Business.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YT87s.Common\YT87s.Common.csproj">
+      <Project>{76d79712-36e1-4767-bb22-da885edce117}</Project>
+      <Name>YT87s.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YT87s.Cores\YT87s.Cores.csproj">
       <Project>{c8cbc0a1-12a9-4ead-b0fa-0e8a5f804864}</Project>
       <Name>YT87s.Cores</Name>
@@ -511,7 +517,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Simple.cshtml" />
+    <Content Include="Views\Index\Add.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Index\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Index_LayoutEdit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
