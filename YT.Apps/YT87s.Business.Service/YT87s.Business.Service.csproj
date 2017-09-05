@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IYTExceptionBusiness.cs" />
+    <Compile Include="IYTLogBusiness.cs" />
     <Compile Include="IYTModuleBusiness.cs" />
     <Compile Include="IYTSimpleBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

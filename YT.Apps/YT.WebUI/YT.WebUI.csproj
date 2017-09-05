@@ -194,14 +194,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ExceptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Core\LogHandler.cs" />
+    <Compile Include="Core\ExtendMvcHtml.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ExceptionModel.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\verify_code.ashx.cs">
+      <DependentUpon>verify_code.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\account.jpg" />
@@ -215,49 +223,6 @@
     <Content Include="Content\Images\gray\headBg.jpg" />
     <Content Include="Content\Images\gray\Logo.png" />
     <Content Include="Content\Images\icons.png" />
-    <Content Include="Content\Images\icons\add.png" />
-    <Content Include="Content\Images\icons\addStep.gif" />
-    <Content Include="Content\Images\icons\addStep_dsbl.gif" />
-    <Content Include="Content\Images\icons\btn-arrow.gif" />
-    <Content Include="Content\Images\icons\Btn.Close.gif" />
-    <Content Include="Content\Images\icons\Btn.Refresh.gif" />
-    <Content Include="Content\Images\icons\cal.gif" />
-    <Content Include="Content\Images\icons\checkbox_0.gif" />
-    <Content Include="Content\Images\icons\checkbox_1.gif" />
-    <Content Include="Content\Images\icons\checkbox_2.gif" />
-    <Content Include="Content\Images\icons\circle_animation.gif" />
-    <Content Include="Content\Images\icons\delete.png" />
-    <Content Include="Content\Images\icons\delItem.gif" />
-    <Content Include="Content\Images\icons\delItem_dsbl.gif" />
-    <Content Include="Content\Images\icons\edit.png" />
-    <Content Include="Content\Images\icons\folder_close.gif" />
-    <Content Include="Content\Images\icons\ico1.gif" />
-    <Content Include="Content\Images\icons\ico2.gif" />
-    <Content Include="Content\Images\icons\ico3.gif" />
-    <Content Include="Content\Images\icons\ico4-1-1.gif" />
-    <Content Include="Content\Images\icons\ico4-1.gif" />
-    <Content Include="Content\Images\icons\ico4-2.gif" />
-    <Content Include="Content\Images\icons\ico4-3.gif" />
-    <Content Include="Content\Images\icons\ico4-4.gif" />
-    <Content Include="Content\Images\icons\ico4.gif" />
-    <Content Include="Content\Images\icons\ico5.gif" />
-    <Content Include="Content\Images\icons\ico6-1.gif" />
-    <Content Include="Content\Images\icons\ico6-2.gif" />
-    <Content Include="Content\Images\icons\ico6.gif" />
-    <Content Include="Content\Images\icons\indicator.gif" />
-    <Content Include="Content\Images\icons\information.png" />
-    <Content Include="Content\Images\icons\Item.Add.gif" />
-    <Content Include="Content\Images\icons\Item.Delete.gif" />
-    <Content Include="Content\Images\icons\Item.Edit.gif" />
-    <Content Include="Content\Images\icons\Item.Input.gif" />
-    <Content Include="Content\Images\icons\Item.Save.gif" />
-    <Content Include="Content\Images\icons\Item.Search.gif" />
-    <Content Include="Content\Images\icons\none.gif" />
-    <Content Include="Content\Images\icons\note.gif" />
-    <Content Include="Content\Images\icons\rowdelete.png" />
-    <Content Include="Content\Images\icons\s.gif" />
-    <Content Include="Content\Images\icons\table_refresh.png" />
-    <Content Include="Content\Images\icons\view.png" />
     <Content Include="Content\Images\icon\cancel.png" />
     <Content Include="Content\Images\icon\check.gif" />
     <Content Include="Content\Images\icon\clear.png" />
@@ -297,33 +262,10 @@
     <Content Include="Content\Images\nopic-t.gif" />
     <Content Include="Content\Images\nopic.gif" />
     <Content Include="Content\Images\NotPic.jpg" />
-    <Content Include="Content\Images\share\glass-bg.gif" />
-    <Content Include="Content\Images\share\hd-sprite.gif" />
-    <Content Include="Content\Images\share\left-btn.gif" />
-    <Content Include="Content\Images\share\right-btn.gif" />
-    <Content Include="Content\Images\share\tool-sprites.gif" />
     <Content Include="Content\Images\sunny\headBg.jpg" />
     <Content Include="Content\Images\sunny\Logo.png" />
     <Content Include="Content\Images\tools.png" />
     <Content Include="Content\Images\tools_bg.gif" />
-    <Content Include="Content\Images\tree\arrows.gif" />
-    <Content Include="Content\Images\tree\cbs.gif" />
-    <Content Include="Content\Images\tree\drop-yes.gif" />
-    <Content Include="Content\Images\tree\elbow-end-minus-nl.gif" />
-    <Content Include="Content\Images\tree\elbow-end-minus.gif" />
-    <Content Include="Content\Images\tree\elbow-end-plus-nl.gif" />
-    <Content Include="Content\Images\tree\elbow-end-plus.gif" />
-    <Content Include="Content\Images\tree\elbow-end.gif" />
-    <Content Include="Content\Images\tree\elbow-line.gif" />
-    <Content Include="Content\Images\tree\elbow-minus-nl.gif" />
-    <Content Include="Content\Images\tree\elbow-minus.gif" />
-    <Content Include="Content\Images\tree\elbow-plus-nl.gif" />
-    <Content Include="Content\Images\tree\elbow-plus.gif" />
-    <Content Include="Content\Images\tree\elbow.gif" />
-    <Content Include="Content\Images\tree\folder-open.gif" />
-    <Content Include="Content\Images\tree\folder.gif" />
-    <Content Include="Content\Images\tree\leaf.gif" />
-    <Content Include="Content\Images\tree\loading.gif" />
     <Content Include="Content\Images\upfile_bg.gif" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\blue\easyui.css" />
@@ -438,6 +380,73 @@
     <Content Include="Content\themes\metro\tree.css" />
     <Content Include="Content\themes\metro\validatebox.css" />
     <Content Include="Content\themes\metro\window.css" />
+    <Content Include="Content\tree\css\images\icons\add.png" />
+    <Content Include="Content\tree\css\images\icons\addStep.gif" />
+    <Content Include="Content\tree\css\images\icons\addStep_dsbl.gif" />
+    <Content Include="Content\tree\css\images\icons\btn-arrow.gif" />
+    <Content Include="Content\tree\css\images\icons\Btn.Close.gif" />
+    <Content Include="Content\tree\css\images\icons\Btn.Refresh.gif" />
+    <Content Include="Content\tree\css\images\icons\cal.gif" />
+    <Content Include="Content\tree\css\images\icons\checkbox_0.gif" />
+    <Content Include="Content\tree\css\images\icons\checkbox_1.gif" />
+    <Content Include="Content\tree\css\images\icons\checkbox_2.gif" />
+    <Content Include="Content\tree\css\images\icons\circle_animation.gif" />
+    <Content Include="Content\tree\css\images\icons\delete.png" />
+    <Content Include="Content\tree\css\images\icons\delItem.gif" />
+    <Content Include="Content\tree\css\images\icons\delItem_dsbl.gif" />
+    <Content Include="Content\tree\css\images\icons\edit.png" />
+    <Content Include="Content\tree\css\images\icons\folder_close.gif" />
+    <Content Include="Content\tree\css\images\icons\ico1.gif" />
+    <Content Include="Content\tree\css\images\icons\ico2.gif" />
+    <Content Include="Content\tree\css\images\icons\ico3.gif" />
+    <Content Include="Content\tree\css\images\icons\ico4-1-1.gif" />
+    <Content Include="Content\tree\css\images\icons\ico4-1.gif" />
+    <Content Include="Content\tree\css\images\icons\ico4-2.gif" />
+    <Content Include="Content\tree\css\images\icons\ico4-3.gif" />
+    <Content Include="Content\tree\css\images\icons\ico4-4.gif" />
+    <Content Include="Content\tree\css\images\icons\ico4.gif" />
+    <Content Include="Content\tree\css\images\icons\ico5.gif" />
+    <Content Include="Content\tree\css\images\icons\ico6-1.gif" />
+    <Content Include="Content\tree\css\images\icons\ico6-2.gif" />
+    <Content Include="Content\tree\css\images\icons\ico6.gif" />
+    <Content Include="Content\tree\css\images\icons\indicator.gif" />
+    <Content Include="Content\tree\css\images\icons\information.png" />
+    <Content Include="Content\tree\css\images\icons\Item.Add.gif" />
+    <Content Include="Content\tree\css\images\icons\Item.Delete.gif" />
+    <Content Include="Content\tree\css\images\icons\Item.Edit.gif" />
+    <Content Include="Content\tree\css\images\icons\Item.Input.gif" />
+    <Content Include="Content\tree\css\images\icons\Item.Save.gif" />
+    <Content Include="Content\tree\css\images\icons\Item.Search.gif" />
+    <Content Include="Content\tree\css\images\icons\none.gif" />
+    <Content Include="Content\tree\css\images\icons\note.gif" />
+    <Content Include="Content\tree\css\images\icons\rowdelete.png" />
+    <Content Include="Content\tree\css\images\icons\s.gif" />
+    <Content Include="Content\tree\css\images\icons\table_refresh.png" />
+    <Content Include="Content\tree\css\images\icons\view.png" />
+    <Content Include="Content\tree\css\images\share\glass-bg.gif" />
+    <Content Include="Content\tree\css\images\share\hd-sprite.gif" />
+    <Content Include="Content\tree\css\images\share\left-btn.gif" />
+    <Content Include="Content\tree\css\images\share\right-btn.gif" />
+    <Content Include="Content\tree\css\images\share\tool-sprites.gif" />
+    <Content Include="Content\tree\css\images\tree\arrows.gif" />
+    <Content Include="Content\tree\css\images\tree\cbs.gif" />
+    <Content Include="Content\tree\css\images\tree\drop-yes.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-end-minus-nl.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-end-minus.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-end-plus-nl.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-end-plus.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-end.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-line.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-minus-nl.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-minus.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-plus-nl.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow-plus.gif" />
+    <Content Include="Content\tree\css\images\tree\elbow.gif" />
+    <Content Include="Content\tree\css\images\tree\folder-open.gif" />
+    <Content Include="Content\tree\css\images\tree\folder.gif" />
+    <Content Include="Content\tree\css\images\tree\leaf.gif" />
+    <Content Include="Content\tree\css\images\tree\loading.gif" />
+    <Content Include="Content\tree\css\tree.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\easyui\easyloader.js" />
@@ -591,6 +600,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Index_LayoutEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Log\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Log\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Index_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Exception\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Exception\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Exception\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\verify_code.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

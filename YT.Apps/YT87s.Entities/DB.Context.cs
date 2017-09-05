@@ -27,5 +27,7 @@ namespace YT87s.Entities
     
         public DbSet<YTSimple> YTSimple { get; set; }
         public DbSet<YTModule> YTModule { get; set; }
+        public DbSet<YTLog> YTLog { get; set; }
+        public DbSet<YTException> YTException { get; set; }
     }
 }

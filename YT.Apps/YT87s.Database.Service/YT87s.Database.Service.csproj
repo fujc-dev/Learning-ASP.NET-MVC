@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IYTModuleRespository.cs" />
+    <Compile Include="IYTExceptionRepository.cs" />
+    <Compile Include="IYTLogRepository.cs" />
+    <Compile Include="IYTModuleRepository.cs" />
     <Compile Include="IYTSimpleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

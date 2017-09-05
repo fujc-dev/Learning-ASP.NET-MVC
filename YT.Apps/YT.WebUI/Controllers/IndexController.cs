@@ -32,10 +32,12 @@ namespace YT.WebUI.Controllers
         {
             if (business.Create(model))
             {
+                LogHandler.WriteServiceLog("虚拟用户", "Id:" + model.Id + ",Name:" + model.Name, "成功", "创建", "样例程序");
                 return Json(1, JsonRequestBehavior.AllowGet);
             }
             else
             {
+                LogHandler.WriteServiceLog("虚拟用户", "Id:" + model.Id + ",Name:" + model.Name, "失败", "创建", "样例程序");
                 return Json(0, JsonRequestBehavior.AllowGet);
             }
         }

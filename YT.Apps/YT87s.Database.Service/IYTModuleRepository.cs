@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YT87s.Entities;
 
 namespace YT87s.Database.Service
 {
-    interface IYTModuleRespository
+    public interface IYTModuleRepository
     {
+        List<YTModule> GetMenuByPersonId(string moduleId);
     }
 }

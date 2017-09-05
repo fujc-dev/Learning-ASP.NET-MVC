@@ -74,6 +74,7 @@ $(function () {
     });
 
 });
+
 $(function () {
     /*为选项卡绑定右键*/
     $(".tabs li").live('contextmenu', function (e) {
@@ -88,6 +89,7 @@ $(function () {
         return false;
     });
 });
+
 function addTab(subtitle, url, icon) {
     if (!$("#mainTab").tabs('exists', subtitle)) {
         $("#mainTab").tabs('add', {
@@ -100,13 +102,15 @@ function addTab(subtitle, url, icon) {
         $("#mainTab").tabs('select', subtitle);
         $("#tab_menu-tabrefresh").trigger("click");
     }
-    $(".layout-button-left").trigger("click");
+    //$(".layout-button-left").trigger("click");  //隐藏左侧导航
     //tabClose();
 }
+
 function createFrame(url) {
     var s = '<iframe frameborder="0" src="' + url + '" scrolling="auto" style="width:100%; height:99%"></iframe>';
     return s;
 }
+
 $(function () {
     $(".ui-skin-nav .li-skinitem span").click(function () {
         var theme = $(this).attr("rel");

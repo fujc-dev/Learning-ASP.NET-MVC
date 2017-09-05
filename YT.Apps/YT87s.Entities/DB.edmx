@@ -6,6 +6,35 @@
     <edmx:StorageModels>
     <Schema Namespace="YT87sModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--生成过程中发现错误:
+警告 6002: 表/视图“YT87s.dbo.YTException”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="YTException">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HelpLink" Type="varchar" MaxLength="500" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Source" Type="varchar" MaxLength="500" />
+          <Property Name="StackTrace" Type="text" />
+          <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+          <Property Name="Data" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YT87s.dbo.YTLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="YTLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Operator" Type="varchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Result" Type="varchar" MaxLength="20" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Module" Type="varchar" MaxLength="20" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“YT87s.dbo.YTModule”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="YTModule">
           <Key>
@@ -41,6 +70,29 @@
         </EntityType>
         <EntityContainer Name="YT87sModelStoreContainer">
           <EntitySet Name="YTSimple" EntityType="Self.YTSimple" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YTException" EntityType="Self.YTException" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[YTException].[Id] AS [Id], 
+[YTException].[HelpLink] AS [HelpLink], 
+[YTException].[Message] AS [Message], 
+[YTException].[Source] AS [Source], 
+[YTException].[StackTrace] AS [StackTrace], 
+[YTException].[TargetSite] AS [TargetSite], 
+[YTException].[Data] AS [Data], 
+[YTException].[CreateTime] AS [CreateTime]
+FROM [dbo].[YTException] AS [YTException]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="YTLog" EntityType="Self.YTLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[YTLog].[Id] AS [Id], 
+[YTLog].[Operator] AS [Operator], 
+[YTLog].[Message] AS [Message], 
+[YTLog].[Result] AS [Result], 
+[YTLog].[Type] AS [Type], 
+[YTLog].[Module] AS [Module], 
+[YTLog].[CreateTime] AS [CreateTime]
+FROM [dbo].[YTLog] AS [YTLog]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="YTModule" EntityType="Self.YTModule" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [YTModule].[Id] AS [Id], 
@@ -66,6 +118,8 @@ FROM [dbo].[YTModule] AS [YTModule]</DefiningQuery>
         <EntityContainer Name="YT87sEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="YTSimple" EntityType="YT87sModel.YTSimple" />
           <EntitySet Name="YTModule" EntityType="YT87sModel.YTModule" />
+          <EntitySet Name="YTLog" EntityType="YT87sModel.YTLog" />
+          <EntitySet Name="YTException" EntityType="YT87sModel.YTException" />
         </EntityContainer>
         <EntityType Name="YTSimple">
           <Key>
@@ -98,6 +152,31 @@ FROM [dbo].[YTModule] AS [YTModule]</DefiningQuery>
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="IsLast" Type="Boolean" Nullable="false" />
           <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="YTLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Module" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="YTException">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -137,6 +216,33 @@ FROM [dbo].[YTModule] AS [YTModule]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="YTLog">
+            <EntityTypeMapping TypeName="YT87sModel.YTLog">
+              <MappingFragment StoreEntitySet="YTLog">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YTException">
+            <EntityTypeMapping TypeName="YT87sModel.YTException">
+              <MappingFragment StoreEntitySet="YTException">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -151,7 +257,7 @@ FROM [dbo].[YTModule] AS [YTModule]</DefiningQuery>
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />

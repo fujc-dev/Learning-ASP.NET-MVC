@@ -14,11 +14,19 @@ namespace YT.WebUI.Controllers
     {
         [Dependency]
         public IYTSimpleBusiness business { get; set; }
+        [Dependency]
+        public IYTModuleBusiness moduleBusiness { get; set; }
+
+
         //
         // GET: /Home/
 
         public ActionResult Index()
         {
+            YTAccountModel account = new YTAccountModel();
+            account.Id = "admin";
+            account.TrueName = "admin";
+            Session["Account"] = account;
             return View();
         }
 
@@ -26,7 +34,7 @@ namespace YT.WebUI.Controllers
 
         #region WEB API Part
 
-
+        [HttpPost]
         public JsonResult GetList(EasyUIGridPager p)
         {
             int total = 0;
@@ -49,6 +57,35 @@ namespace YT.WebUI.Controllers
             return Json(json, JsonRequestBehavior.AllowGet);
         }
 
-        #endregion
+        /// <summary>
+        /// 获取导航菜单
+        /// </summary>
+        /// <param name="id">所属</param>
+        /// <returns>树</returns>
+        public JsonResult GetTree(string id)
+        {
+
+            List<YTModuleViewModel> menus = moduleBusiness.GetMenuByPersonId(id);
+            var jsonData = (
+                    from m in menus
+                    select new
+                    {
+                        id = m.Id,
+                        text = m.Name,
+                        value = m.Url,
+                        showcheck = false,
+                        complete = false,
+                        isexpand = false,
+                        checkstate = 0,
+                        hasChildren = m.IsLast ? false : true,
+                        Icon = m.Iconic
+                    }
+                ).ToArray();
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+
+        }
+
     }
+
+        #endregion
 }

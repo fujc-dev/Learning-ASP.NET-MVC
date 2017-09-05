@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="YTAccountModel.cs" />
+    <Compile Include="YTExceptionViewModel.cs" />
+    <Compile Include="YTLogViewModel.cs" />
+    <Compile Include="YTModuleViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="YTSampleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

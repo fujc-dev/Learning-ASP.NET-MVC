@@ -41,3 +41,14 @@ INSERT INTO [YTModule] ([Id],[Name],[EnglishName],[ParentId],[Url],[Iconic],[Sor
 INSERT INTO [YTModule] ([Id],[Name],[EnglishName],[ParentId],[Url],[Iconic],[Sort],[Remark],[State],[CreatePerson],[CreateTime],[IsLast],[Version]) values ('SystemManage','系统管理','System Management','0','','',3,'',1,'Administrator','10  1 2012 12:00AM',0,NULL)
 INSERT INTO [YTModule] ([Id],[Name],[EnglishName],[ParentId],[Url],[Iconic],[Sort],[Remark],[State],[CreatePerson],[CreateTime],[IsLast],[Version]) values ('UserManage','系统管理员','User Manage','RightManage','SysUser',NULL,1,NULL,1,'Administrator','10  1 2012 12:00AM',1,NULL)
 
+
+// 系统日志表
+CREATE TABLE [dbo].[YTLog](
+    [Id] [varchar](50) NOT NULL, --GUID
+    [Operator] [varchar](50) NULL,--操作人
+    [Message] [varchar](500) NULL,--操作信息
+    [Result] [varchar](20) NULL,--结果
+    [Type] [varchar](20) NULL,--操作类型
+    [Module] [varchar](20) NULL,--操作模块
+    [CreateTime] [datetime] NULL,--操作事件
+    )

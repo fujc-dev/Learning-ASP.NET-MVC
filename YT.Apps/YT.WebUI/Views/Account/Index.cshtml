@@ -131,12 +131,13 @@
                             <td style="width: 80px; text-align: right">
                                 验证码：
                             </td>
-                            <td></td>
+                            <td>
+                                <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
+                                <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="/Core/verify_code.ashx" onclick="this.src=this.src+'?'" />
+                                <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
+                            </td>
                         </tr>
-
-
                         <tr>
-
                             <td colspan="2">
                                 <table style="width: 100%;">
                                     <tr>
@@ -163,7 +164,7 @@
 
     </div>
     <div style="background:#f1f1f1; height:40px; width:100%; text-align:center; line-height:40px;border-top:1px #ccc solid;bottom:0; position:absolute">
-        Copyright ailsabe@126.com2017-2020
+        Copyright ailsabe@126.com 2017-2020
     </div>
 </body>
 </html>
