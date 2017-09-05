@@ -15,7 +15,7 @@ namespace YT.WebUI.Controllers
         //
         // GET: /Index/
         [Dependency]
-        public YT87s.Business.Service.IYTSampleBusiness business { get; set; }
+        public YT87s.Business.Service.IYTSimpleBusiness business { get; set; }
 
         public ActionResult Index()
         {

@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="YTSampleRepositoryImp.cs" />
+    <Compile Include="YTModuleRespositoryImp.cs" />
+    <Compile Include="YTSimpleRepositoryImp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ namespace YT.WebUI.Controllers
     public class HomeController : Controller
     {
         [Dependency]
-        public IYTSampleBusiness business { get; set; }
+        public IYTSimpleBusiness business { get; set; }
         //
         // GET: /Home/
 

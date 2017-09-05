@@ -11,18 +11,18 @@ using YT87s.ViewModels;
 
 namespace YT87s.Business.Implements
 {
-    public class YTSampleBusinessImp : IYTSampleBusiness
+    public class YTSimpleBusinessImp : IYTSimpleBusiness
     {
         YT87sEntities db = new YT87sEntities();
 
-        IYTSampleRepository Rep = new YTSampleRepositoryImp();
+        IYTSimpleRepository Rep = new YTSimpleRepositoryImp();
 
         public List<YTSampleViewModel> GetList(int page, int rows, string sort, string order, ref int total)
         {
-            IQueryable<YTSample> queryData = Rep.GetList(db, ref total, page, rows, sort, order);
+            IQueryable<YTSimple> queryData = Rep.GetList(db, ref total, page, rows, sort, order);
             return CreateModelList(ref queryData, page, rows, ref total);
         }
-        private List<YTSampleViewModel> CreateModelList(ref IQueryable<YTSample> queryData, int page, int rows, ref int total)
+        private List<YTSampleViewModel> CreateModelList(ref IQueryable<YTSimple> queryData, int page, int rows, ref int total)
         {
 
             if (total > 0)
@@ -61,12 +61,12 @@ namespace YT87s.Business.Implements
         {
             try
             {
-                YTSample entity = Rep.GetById(model.Id);
+                YTSimple entity = Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     return false;
                 }
-                entity = new YTSample();
+                entity = new YTSimple();
                 entity.Id = model.Id;
                 entity.Name = model.Name;
                 entity.Age = model.Age;
@@ -115,7 +115,7 @@ namespace YT87s.Business.Implements
         {
             try
             {
-                YTSample entity = Rep.GetById(model.Id);
+                YTSimple entity = Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     return false;
@@ -144,7 +144,7 @@ namespace YT87s.Business.Implements
 
         public bool IsExists(string id)
         {
-            if (db.YTSample.SingleOrDefault(a => a.Id == id) != null)
+            if (db.YTSimple.SingleOrDefault(a => a.Id == id) != null)
             {
                 return true;
             }
@@ -156,7 +156,7 @@ namespace YT87s.Business.Implements
             if (IsExist(id))
             {
 
-                YTSample entity = Rep.GetById(id);
+                YTSimple entity = Rep.GetById(id);
                 YTSampleViewModel model = new YTSampleViewModel();
                 model.Id = entity.Id;
                 model.Name = entity.Name;

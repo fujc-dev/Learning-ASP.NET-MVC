@@ -7,18 +7,18 @@ using YT87s.Entities;
 
 namespace YT87s.Database.Service
 {
-    public interface IYTSampleRepository
+    public interface IYTSimpleRepository
     {
         /// <summary>
         /// 获取列表
         /// </summary>
         /// <returns>数据列表</returns>
-        IQueryable<YTSample> GetList(YT87sEntities db, ref int total, int page, int rows, string sort, string order);
+        IQueryable<YTSimple> GetList(YT87sEntities db, ref int total, int page, int rows, string sort, string order);
         /// <summary>
         /// 创建一个实体
         /// </summary>
         /// <param name="entity">实体</param>
-        int Create(YTSample entity);
+        int Create(YTSimple entity);
         /// <summary>
         /// 删除一个实体
         /// </summary>
@@ -29,13 +29,13 @@ namespace YT87s.Database.Service
         /// 修改一个实体
         /// </summary>
         /// <param name="entity">实体</param>
-        int Edit(YTSample entity);
+        int Edit(YTSimple entity);
         /// <summary>
         /// 获得一个实体
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>实体</returns>
-        YTSample GetById(string id);
+        YTSimple GetById(string id);
         /// <summary>
         /// 判断一个实体是否存在
         /// </summary>

@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IYTSampleRepository.cs" />
+    <Compile Include="IYTModuleRespository.cs" />
+    <Compile Include="IYTSimpleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

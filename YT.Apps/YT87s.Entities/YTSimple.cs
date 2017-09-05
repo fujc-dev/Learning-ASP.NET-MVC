@@ -12,7 +12,7 @@ namespace YT87s.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class YTSample
+    public partial class YTSimple
     {
         public string Id { get; set; }
         public string Name { get; set; }

@@ -8,7 +8,7 @@ using YT87s.ViewModels;
 
 namespace YT87s.Business.Service
 {
-    public interface IYTSampleBusiness
+    public interface IYTSimpleBusiness
     {
         /// <summary>
         /// 获取列表

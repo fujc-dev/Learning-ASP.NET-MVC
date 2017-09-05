@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="YTSampleBusinessImp.cs" />
+    <Compile Include="YTModuleBusinessImp.cs" />
+    <Compile Include="YTSimpleBusinessImp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

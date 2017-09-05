@@ -25,6 +25,7 @@ namespace YT87s.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<YTSample> YTSample { get; set; }
+        public DbSet<YTSimple> YTSimple { get; set; }
+        public DbSet<YTModule> YTModule { get; set; }
     }
 }
