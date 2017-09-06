@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IYTUserRepository.cs" />
     <Compile Include="IYTExceptionRepository.cs" />
     <Compile Include="IYTLogRepository.cs" />
     <Compile Include="IYTModuleRepository.cs" />

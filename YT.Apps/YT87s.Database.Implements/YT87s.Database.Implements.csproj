@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="YTUserRepositoryImp.cs" />
     <Compile Include="YTExceptionRepositoryImp.cs" />
     <Compile Include="YTLogRepositoryImp.cs" />
     <Compile Include="YTModuleRepositoryImp.cs" />

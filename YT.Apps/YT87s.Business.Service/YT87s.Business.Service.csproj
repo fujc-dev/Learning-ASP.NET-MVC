@@ -43,6 +43,7 @@
     <Compile Include="IYTLogBusiness.cs" />
     <Compile Include="IYTModuleBusiness.cs" />
     <Compile Include="IYTSimpleBusiness.cs" />
+    <Compile Include="IYTUserBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

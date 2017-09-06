@@ -7,8 +7,8 @@ using YT87s.Entities;
 
 namespace YT87s.Database.Service
 {
-    public interface IYTModuleRepository
+    public interface IYTUserRepository
     {
-        List<SysModule> GetMenuByPersonId(string personId, string moduleId);
+        SysUser Login(string username, string pwd);
     }
 }

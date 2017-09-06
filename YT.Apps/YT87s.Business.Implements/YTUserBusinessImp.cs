@@ -6,19 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using YT87s.Business.Service;
 using YT87s.Database.Service;
-using YT87s.Entities;
-using YT87s.ViewModels;
 
 namespace YT87s.Business.Implements
 {
-    public class YTModuleBusinessImp : IYTModuleBusiness
+    public class YTUserBusinessImp : IYTUserBusiness
     {
         [Dependency]
-        public IYTModuleRepository Rep { get; set; }
-
-        public List<SysModule> GetMenuByPersonId(string personId, string moduleId)
+        public IYTUserRepository userRep { get; set; }
+        public Entities.SysUser Login(string username, string pwd)
         {
-            return Rep.GetMenuByPersonId(personId, moduleId);
+            return userRep.Login(username, pwd);
         }
     }
 }

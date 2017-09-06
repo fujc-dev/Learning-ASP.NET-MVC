@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using YT87s.Business.Service;
 using YT87s.Common;
+using YT87s.Entities;
 using YT87s.ViewModels;
 
 namespace YT.WebUI.Controllers
@@ -23,10 +24,13 @@ namespace YT.WebUI.Controllers
 
         public ActionResult Index()
         {
-            YTAccountModel account = new YTAccountModel();
-            account.Id = "admin";
-            account.TrueName = "admin";
-            Session["Account"] = account;
+            if (Session["Account"] == null)
+            {
+                YTAccountModel account = new YTAccountModel();
+                account.Id = "admin";
+                account.TrueName = "admin";
+                Session["Account"] = account;
+            }
             return View();
         }
 
@@ -64,8 +68,8 @@ namespace YT.WebUI.Controllers
         /// <returns>树</returns>
         public JsonResult GetTree(string id)
         {
-
-            List<YTModuleViewModel> menus = moduleBusiness.GetMenuByPersonId(id);
+            YTAccountModel account = (YTAccountModel)Session["Account"];
+            List<SysModule> menus = moduleBusiness.GetMenuByPersonId(account.Id, id);
             var jsonData = (
                     from m in menus
                     select new

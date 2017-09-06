@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using YT87s.Business.Service;
 using YT87s.Common;
+using YT87s.Entities;
 using YT87s.ViewModels;
 
 namespace YT.WebUI.Controllers
@@ -24,12 +25,12 @@ namespace YT.WebUI.Controllers
 
         public JsonResult GetList(YT87s.Common.EasyUIGridPager pager, string queryStr)
         {
-            List<YTExceptionViewModel> list = exceptionBusiness.GetList(pager.page, pager.rows, pager.sort, pager.order, ref  pager.totalRows, queryStr);
+            List<SysException> list = exceptionBusiness.GetList(pager.page, pager.rows, pager.sort, pager.order, ref  pager.totalRows, queryStr);
             var json = new
             {
                 total = pager.totalRows,
                 rows = (from r in list
-                        select new
+                        select new YTExceptionViewModel
                         {
                             Id = r.Id,
                             HelpLink = r.HelpLink,

@@ -28,6 +28,10 @@ namespace YT87s.Cores
             container.RegisterType<IYTExceptionBusiness, YTExceptionBusinessImp>();
             container.RegisterType<IYTExceptionRepository, YTExceptionRepositoryImp>();
 
+            container.RegisterType<IYTUserRepository, YTUserRepositoryImp>();
+            container.RegisterType<IYTUserBusiness, YTUserBusinessImp>();
+
+
         }
     }
 }

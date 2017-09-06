@@ -193,9 +193,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ExceptionController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AccountController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ExceptionController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Core\LogHandler.cs" />
@@ -203,7 +209,6 @@
     <Compile Include="Core\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ExceptionModel.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -587,6 +592,10 @@
     <ProjectReference Include="..\YT87s.Cores\YT87s.Cores.csproj">
       <Project>{c8cbc0a1-12a9-4ead-b0fa-0e8a5f804864}</Project>
       <Name>YT87s.Cores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YT87s.Entities\YT87s.Entities.csproj">
+      <Project>{f75ed447-2119-49be-bb53-0454bee5366d}</Project>
+      <Name>YT87s.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\YT87s.ViewModels\YT87s.ViewModels.csproj">
       <Project>{91e6458e-3105-4070-8597-58cc59b611f5}</Project>

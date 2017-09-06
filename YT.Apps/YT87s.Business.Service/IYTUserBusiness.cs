@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YT87s.Entities;
-using YT87s.ViewModels;
 
 namespace YT87s.Business.Service
 {
-    public interface IYTModuleBusiness
+    public interface IYTUserBusiness
     {
-        List<SysModule> GetMenuByPersonId(string personId, string moduleId);
+        SysUser Login(string username, string pwd);
     }
 }

@@ -17,7 +17,7 @@ namespace YT87s.Business.Implements
         public IYTExceptionRepository exRep { get; set; }
 
 
-        public List<YTExceptionViewModel> GetList(int page, int rows, string sort, string order, ref int total, string queryStr)
+        public List<SysException> GetList(int page, int rows, string sort, string order, ref int total, string queryStr)
         {
 
             YT87sEntities db = new YT87sEntities();
@@ -41,42 +41,14 @@ namespace YT87s.Business.Implements
             {
                 query = list.OrderBy(c => c.CreateTime).Skip((page - 1) * rows).Take(rows).ToList();
             }
-            List<YTExceptionViewModel> viewModels = new List<YTExceptionViewModel>();
 
-            query.ForEach((o) =>
-            {
-                var _ = new YTExceptionViewModel()
-                {
-                    Id = o.Id,
-                    HelpLink = o.HelpLink,
-                    Message = o.Message,
-                    Source = o.Source,
-                    StackTrace = o.StackTrace,
-                    TargetSite = o.TargetSite,
-                    Data = o.Data,
-                    CreateTime = o.CreateTime
-                };
-                viewModels.Add(_);
-            });
-            return viewModels;
+            return query;
 
         }
 
-        public YTExceptionViewModel GetById(string id)
+        public SysException GetById(string id)
         {
-            var o = exRep.GetById(id);
-            var _ = new YTExceptionViewModel()
-            {
-                Id = o.Id,
-                HelpLink = o.HelpLink,
-                Message = o.Message,
-                Source = o.Source,
-                StackTrace = o.StackTrace,
-                TargetSite = o.TargetSite,
-                Data = o.Data,
-                CreateTime = o.CreateTime
-            };
-            return _;
+            return exRep.GetById(id);
         }
     }
 }
