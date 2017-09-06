@@ -61,9 +61,6 @@
     <Compile Include="UnityDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\YT87s.Business.Implements\YT87s.Business.Implements.csproj">
       <Project>{5d200911-c3a2-4810-86f9-684d22b46b88}</Project>
       <Name>YT87s.Business.Implements</Name>
@@ -80,6 +77,9 @@
       <Project>{1fff5cf7-63cb-4204-8768-ca0af198c668}</Project>
       <Name>YT87s.Database.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

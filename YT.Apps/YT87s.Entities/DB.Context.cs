@@ -25,9 +25,14 @@ namespace YT87s.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<YTSimple> YTSimple { get; set; }
-        public DbSet<YTModule> YTModule { get; set; }
-        public DbSet<YTLog> YTLog { get; set; }
-        public DbSet<YTException> YTException { get; set; }
+        public DbSet<SysModule> SysModule { get; set; }
+        public DbSet<SysModuleOperate> SysModuleOperate { get; set; }
+        public DbSet<SysRight> SysRight { get; set; }
+        public DbSet<SysRightOperate> SysRightOperate { get; set; }
+        public DbSet<SysRole> SysRole { get; set; }
+        public DbSet<SysSimple> SysSimple { get; set; }
+        public DbSet<SysUser> SysUser { get; set; }
+        public DbSet<SysException> SysException { get; set; }
+        public DbSet<SysLog> SysLog { get; set; }
     }
 }

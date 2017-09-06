@@ -7,8 +7,10 @@ using YT87s.Entities;
 
 namespace YT87s.Database.Service
 {
-    public interface IYTModuleRepository
+    public interface IYTExceptionRepository
     {
-        List<SysModule> GetMenuByPersonId(string moduleId);
+        int Create(SysException entity);
+        IQueryable<SysException> GetList(YT87sEntities db);
+        SysException GetById(string id);
     }
 }

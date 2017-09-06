@@ -12,20 +12,15 @@ namespace YT87s.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class YTModule
+    public partial class SysException
     {
         public string Id { get; set; }
-        public string Name { get; set; }
-        public string EnglishName { get; set; }
-        public string ParentId { get; set; }
-        public string Url { get; set; }
-        public string Iconic { get; set; }
-        public Nullable<int> Sort { get; set; }
-        public string Remark { get; set; }
-        public Nullable<bool> State { get; set; }
-        public string CreatePerson { get; set; }
+        public string HelpLink { get; set; }
+        public string Message { get; set; }
+        public string Source { get; set; }
+        public string StackTrace { get; set; }
+        public string TargetSite { get; set; }
+        public string Data { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
-        public bool IsLast { get; set; }
-        public byte[] Version { get; set; }
     }
 }

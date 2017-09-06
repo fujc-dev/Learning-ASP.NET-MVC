@@ -7,6 +7,9 @@ using System.Web.Mvc;
 
 namespace YT.WebUI
 {
+    /// <summary>
+    /// Razor语法扩展
+    /// </summary>
     public static class ExtendMvcHtml
     {
 

@@ -12,15 +12,14 @@ namespace YT87s.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class YTException
+    public partial class SysSimple
     {
         public string Id { get; set; }
-        public string HelpLink { get; set; }
-        public string Message { get; set; }
-        public string Source { get; set; }
-        public string StackTrace { get; set; }
-        public string TargetSite { get; set; }
-        public string Data { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> Age { get; set; }
+        public Nullable<System.DateTime> Bir { get; set; }
+        public string Photo { get; set; }
+        public string Note { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
     }
 }

@@ -10,13 +10,13 @@ namespace YT87s.Database.Implements
 {
     public class YTModuleRepositoryImp : IYTModuleRepository
     {
-        public List<YTModule> GetMenuByPersonId(string moduleId)
+        public List<SysModule> GetMenuByPersonId(string moduleId)
         {
             using (YT87sEntities db = new YT87sEntities())
             {
                 var menus =
                 (
-                    from m in db.YTModule
+                    from m in db.SysModule
                     where m.ParentId == moduleId
                     where m.Id != "0"
                     select m

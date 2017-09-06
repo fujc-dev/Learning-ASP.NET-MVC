@@ -9,9 +9,9 @@ namespace YT87s.Database.Service
 {
     public interface IYTLogRepository
     {
-        int Create(YTLog entity);
+        int Create(SysLog entity);
         void Delete(YT87sEntities db, string[] deleteCollection);
-        IQueryable<YTLog> GetList(YT87sEntities db);
-        YTLog GetById(string id);
+        IQueryable<SysLog> GetList(YT87sEntities db);
+        SysLog GetById(string id);
     }
 }

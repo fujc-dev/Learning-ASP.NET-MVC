@@ -12,14 +12,20 @@ namespace YT87s.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class YTSimple
+    public partial class SysRight
     {
+        public SysRight()
+        {
+            this.SysRightOperate = new HashSet<SysRightOperate>();
+        }
+    
         public string Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> Age { get; set; }
-        public Nullable<System.DateTime> Bir { get; set; }
-        public string Photo { get; set; }
-        public string Note { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
+        public string ModuleId { get; set; }
+        public string RoleId { get; set; }
+        public bool Rightflag { get; set; }
+    
+        public virtual SysModule SysModule { get; set; }
+        public virtual SysRole SysRole { get; set; }
+        public virtual ICollection<SysRightOperate> SysRightOperate { get; set; }
     }
 }

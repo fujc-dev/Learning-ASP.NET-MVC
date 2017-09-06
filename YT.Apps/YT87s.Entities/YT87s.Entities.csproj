@@ -62,16 +62,31 @@
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YTException.cs">
+    <Compile Include="SysException.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="YTLog.cs">
+    <Compile Include="SysLog.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="YTModule.cs">
+    <Compile Include="SysModule.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="YTSimple.cs">
+    <Compile Include="SysModuleOperate.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysRight.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysRightOperate.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysRole.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysSimple.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysUser.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

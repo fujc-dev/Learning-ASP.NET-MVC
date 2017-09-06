@@ -200,6 +200,9 @@
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Core\LogHandler.cs" />
     <Compile Include="Core\ExtendMvcHtml.cs" />
+    <Compile Include="Core\verify_code.ashx.cs">
+      <DependentUpon>verify_code.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ExceptionModel.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -207,9 +210,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\verify_code.ashx.cs">
-      <DependentUpon>verify_code.ashx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\account.jpg" />
@@ -447,6 +447,7 @@
     <Content Include="Content\tree\css\images\tree\leaf.gif" />
     <Content Include="Content\tree\css\images\tree\loading.gif" />
     <Content Include="Content\tree\css\tree.css" />
+    <Content Include="Core\verify_code.ashx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\easyui\easyloader.js" />
@@ -618,9 +619,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Exception\Error.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Core\verify_code.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

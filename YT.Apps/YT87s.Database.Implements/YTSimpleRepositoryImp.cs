@@ -16,9 +16,9 @@ namespace YT87s.Database.Implements
         ///</summary>
         /// <param name="db">数据库上下文</param>
         /// <returns>数据列表</returns>
-        public IQueryable<YTSimple> GetList(YT87sEntities db, ref int total, int page, int rows, string sort = "Id", string order = "desc")
+        public IQueryable<SysSimple> GetList(YT87sEntities db, ref int total, int page, int rows, string sort = "Id", string order = "desc")
         {
-            IQueryable<YTSimple> list = db.YTSimple.AsQueryable().OrderByDescending(o => sort);
+            IQueryable<SysSimple> list = db.SysSimple.AsQueryable().OrderByDescending(o => sort);
             total = list.Count();
             return list;
         }
@@ -27,11 +27,11 @@ namespace YT87s.Database.Implements
         ///</summary>
         /// <param name="db">数据库上下文</param>
         /// <param name="entity">实体</param>
-        public int Create(YTSimple entity)
+        public int Create(SysSimple entity)
         {
             using (YT87sEntities db = new YT87sEntities())
             {
-                db.Set<YTSimple>().Add(entity);
+                db.Set<SysSimple>().Add(entity);
                 return db.SaveChanges();
             }
         }
@@ -44,8 +44,8 @@ namespace YT87s.Database.Implements
         {
             using (YT87sEntities db = new YT87sEntities())
             {
-                YTSimple entity = db.YTSimple.SingleOrDefault(a => a.Id == id);
-                db.Set<YTSimple>().Remove(entity);
+                SysSimple entity = db.SysSimple.SingleOrDefault(a => a.Id == id);
+                db.Set<SysSimple>().Remove(entity);
                 return db.SaveChanges();
             }
         }
@@ -55,12 +55,12 @@ namespace YT87s.Database.Implements
         ///</summary>
         /// <param name="db">数据库上下文</param>
         /// <param name="entity">实体</param>
-        public int Edit(YTSimple entity)
+        public int Edit(SysSimple entity)
         {
             using (YT87sEntities db = new YT87sEntities())
             {
-                db.Set<YTSimple>().Attach(entity);
-                db.Entry<YTSimple>(entity).State = EntityState.Modified;
+                db.Set<SysSimple>().Attach(entity);
+                db.Entry<SysSimple>(entity).State = EntityState.Modified;
                 return db.SaveChanges();
             }
         }
@@ -69,11 +69,11 @@ namespace YT87s.Database.Implements
         ///</summary>
         /// <param name="id">id</param>
         /// <returns>实体</returns>
-        public YTSimple GetById(string id)
+        public SysSimple GetById(string id)
         {
             using (YT87sEntities db = new YT87sEntities())
             {
-                return db.YTSimple.SingleOrDefault(a => a.Id == id);
+                return db.SysSimple.SingleOrDefault(a => a.Id == id);
             }
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace YT87s.Database.Implements
         {
             using (YT87sEntities db = new YT87sEntities())
             {
-                YTSimple entity = GetById(id);
+                SysSimple entity = GetById(id);
                 if (entity != null)
                     return true;
                 return false;

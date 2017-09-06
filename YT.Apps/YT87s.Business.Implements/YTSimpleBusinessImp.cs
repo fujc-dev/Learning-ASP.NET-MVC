@@ -19,10 +19,10 @@ namespace YT87s.Business.Implements
 
         public List<YTSampleViewModel> GetList(int page, int rows, string sort, string order, ref int total)
         {
-            IQueryable<YTSimple> queryData = Rep.GetList(db, ref total, page, rows, sort, order);
+            IQueryable<SysSimple> queryData = Rep.GetList(db, ref total, page, rows, sort, order);
             return CreateModelList(ref queryData, page, rows, ref total);
         }
-        private List<YTSampleViewModel> CreateModelList(ref IQueryable<YTSimple> queryData, int page, int rows, ref int total)
+        private List<YTSampleViewModel> CreateModelList(ref IQueryable<SysSimple> queryData, int page, int rows, ref int total)
         {
 
             if (total > 0)
@@ -61,12 +61,12 @@ namespace YT87s.Business.Implements
         {
             try
             {
-                YTSimple entity = Rep.GetById(model.Id);
+                SysSimple entity = Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     return false;
                 }
-                entity = new YTSimple();
+                entity = new SysSimple();
                 entity.Id = model.Id;
                 entity.Name = model.Name;
                 entity.Age = model.Age;
@@ -115,7 +115,7 @@ namespace YT87s.Business.Implements
         {
             try
             {
-                YTSimple entity = Rep.GetById(model.Id);
+                SysSimple entity = Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     return false;
@@ -144,7 +144,7 @@ namespace YT87s.Business.Implements
 
         public bool IsExists(string id)
         {
-            if (db.YTSimple.SingleOrDefault(a => a.Id == id) != null)
+            if (db.SysSimple.SingleOrDefault(a => a.Id == id) != null)
             {
                 return true;
             }
@@ -156,7 +156,7 @@ namespace YT87s.Business.Implements
             if (IsExist(id))
             {
 
-                YTSimple entity = Rep.GetById(id);
+                SysSimple entity = Rep.GetById(id);
                 YTSampleViewModel model = new YTSampleViewModel();
                 model.Id = entity.Id;
                 model.Name = entity.Name;

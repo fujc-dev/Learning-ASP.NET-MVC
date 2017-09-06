@@ -12,14 +12,21 @@ namespace YT87s.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class YTLog
+    public partial class SysRole
     {
+        public SysRole()
+        {
+            this.SysRight = new HashSet<SysRight>();
+            this.SysUser = new HashSet<SysUser>();
+        }
+    
         public string Id { get; set; }
-        public string Operator { get; set; }
-        public string Message { get; set; }
-        public string Result { get; set; }
-        public string Type { get; set; }
-        public string Module { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public System.DateTime CreateTime { get; set; }
+        public string CreatePerson { get; set; }
+    
+        public virtual ICollection<SysRight> SysRight { get; set; }
+        public virtual ICollection<SysUser> SysUser { get; set; }
     }
 }
