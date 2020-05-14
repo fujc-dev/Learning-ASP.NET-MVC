@@ -3,3 +3,10 @@
 ################################################################################
 
 /SDT.NetCore/.vs/SDT.NetCore/v16/Server/sqlite3
+/SDT.NetCore/CatDI/bin/Debug/netcoreapp3.1
+/SDT.NetCore/CatDI/obj
+/SDT.NetCore/MvcLib/bin/Debug/netcoreapp3.1
+/SDT.NetCore/MvcLib/obj
+/SDT.NetCore/SDT.WebApp/obj
+/SDT.NetCore/SDT.WebApp/bin/Debug/netcoreapp3.0
+/SDT.NetCore/.vs/SDT.NetCore/v16
