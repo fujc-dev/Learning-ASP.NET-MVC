@@ -97,13 +97,13 @@ namespace CatDI
         /// <returns></returns>
         public DependencyInjectionContainer Register(ServiceRegistry registry)
         {
-            //
+            //检测容器是否已被释放
             EnsureNotDisposed();
-
+            //写入注册集合，检测是否已包含相同类型的注册类型
             if (_registries.TryGetValue(registry.ServiceType, out var existing))
             {
-                _registries[registry.ServiceType] = registry;
-                registry.Next = existing;
+                _registries[registry.ServiceType] = registry; //如果已包含？替换之前的注册对象
+                registry.Next = existing; //并将已存是注册对象附加在registry.Next属性中，以链表的形成保存相同类型的注册项
             }
             else
             {

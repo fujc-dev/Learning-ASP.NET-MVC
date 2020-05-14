@@ -11,13 +11,25 @@ namespace CatDI
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public sealed class MapToAttribute : Attribute
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Type ServiceType { get; }
+        /// <summary>
+        /// 生命周期
+        /// </summary>
         public Lifetime Lifetime { get; }
 
         public MapToAttribute(Type serviceType, Lifetime lifetime)
         {
             ServiceType = serviceType;
             Lifetime = lifetime;
+        }
+
+        public MapToAttribute(Type serviceType)
+        {
+            ServiceType = serviceType;
+            Lifetime = Lifetime.Root;
         }
     }
 }
