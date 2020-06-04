@@ -29,7 +29,6 @@ namespace SDT.WebApp
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-           
             services.AddRazorPages();
         }
 

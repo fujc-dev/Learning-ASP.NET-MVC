@@ -12,7 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.txt = readme.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatDI", "CatDI\CatDI.csproj", "{451D3B4D-CC28-44E2-95C9-0FD491879D83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatDI", "CatDI\CatDI.csproj", "{451D3B4D-CC28-44E2-95C9-0FD491879D83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDT.Web", "SDT.Web\SDT.Web.csproj", "{E048B7F1-3832-4F9D-BCD9-223D220B2189}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{451D3B4D-CC28-44E2-95C9-0FD491879D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{451D3B4D-CC28-44E2-95C9-0FD491879D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{451D3B4D-CC28-44E2-95C9-0FD491879D83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E048B7F1-3832-4F9D-BCD9-223D220B2189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E048B7F1-3832-4F9D-BCD9-223D220B2189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E048B7F1-3832-4F9D-BCD9-223D220B2189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E048B7F1-3832-4F9D-BCD9-223D220B2189}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
