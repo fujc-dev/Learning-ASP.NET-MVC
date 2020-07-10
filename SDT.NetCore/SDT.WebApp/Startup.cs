@@ -8,11 +8,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace SDT.WebApp
 {
     /// <summary>
-    /// 
+    /// <see cref="Startup"/>类可用来定义请求处理管道和配置应用需要的服务。
     /// </summary>
     public class Startup
     {
@@ -30,9 +31,16 @@ namespace SDT.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            //Session是基于分布式缓存创建的，在配置Session之前要先配置DistributedCache
+            services.AddDistributedMemoryCache();
+            services.AddSession((options => options.IdleTimeout = TimeSpan.FromSeconds(10)));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        ///  用于配置中间件
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -42,11 +50,12 @@ namespace SDT.WebApp
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                //app.UseHsts();
             }
+            app.UseDefaultFiles();
 
-            app.UseHttpsRedirection();
+
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
