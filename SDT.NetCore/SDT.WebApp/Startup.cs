@@ -50,18 +50,18 @@ namespace SDT.WebApp
             else
             {
                 app.UseExceptionHandler("/Error");
-                //app.UseHsts();
             }
+            //默认文档服务，请求文件夹的时候将检索以下文件：default.htm、default.html、index.htm、index.html
             app.UseDefaultFiles();
-
-
-            //app.UseHttpsRedirection();
+            //可以理解为有权限访问wwwroot下的静态资源文件
             app.UseStaticFiles();
-
+            //路由中间件
             app.UseRouting();
-
+            //
+            app.UseAuthentication();
+            //
             app.UseAuthorization();
-
+            //
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
