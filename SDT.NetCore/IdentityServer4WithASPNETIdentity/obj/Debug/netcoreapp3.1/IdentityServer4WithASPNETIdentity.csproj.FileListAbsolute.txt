@@ -96,3 +96,4 @@ D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\IdentityServer4WithASPNETIdentity\bin
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\IdentityServer4WithASPNETIdentity\obj\Debug\netcoreapp3.1\IdentityServer4WithASPNETIdentity.csproj.CoreCompileInputs.cache
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\IdentityServer4WithASPNETIdentity\obj\Debug\netcoreapp3.1\IdentityServer4WithASPNETIdentity.MvcApplicationPartsAssemblyInfo.cs
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\IdentityServer4WithASPNETIdentity\obj\Debug\netcoreapp3.1\IdentityServer4WithASPNETIdentity.MvcApplicationPartsAssemblyInfo.cache
+D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\IdentityServer4WithASPNETIdentity\obj\Debug\netcoreapp3.1\IdentityServer4WithASPNETIdentity.csprojAssemblyReference.cache
