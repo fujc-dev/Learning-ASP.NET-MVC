@@ -20,6 +20,9 @@ IdentityServer4（8）- 使用密码认证方式控制API访问（资源所有者密码授权模式）
 
 IdentityServer4（9）- 使用OpenID Connect添加用户身份验证（implicit）
 
+1、GrantTypes.Implicit 4.x版本可用
+2、
+
 
 
 

@@ -61,3 +61,4 @@ D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.IdentitySer
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.IdentityServer\obj\Debug\netcoreapp3.1\SDT.IdentityServer.dll
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.IdentityServer\obj\Debug\netcoreapp3.1\SDT.IdentityServer.pdb
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.IdentityServer\obj\Debug\netcoreapp3.1\SDT.IdentityServer.genruntimeconfig.cache
+D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.IdentityServer\obj\Debug\netcoreapp3.1\SDT.IdentityServer.csprojAssemblyReference.cache

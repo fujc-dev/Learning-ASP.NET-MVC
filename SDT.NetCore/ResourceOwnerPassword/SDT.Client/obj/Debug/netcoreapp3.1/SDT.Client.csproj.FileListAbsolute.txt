@@ -29,3 +29,4 @@ D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Client\obj\
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Client\obj\Debug\netcoreapp3.1\SDT.Client.dll
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Client\obj\Debug\netcoreapp3.1\SDT.Client.pdb
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Client\obj\Debug\netcoreapp3.1\SDT.Client.genruntimeconfig.cache
+D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Client\obj\Debug\netcoreapp3.1\SDT.Client.csprojAssemblyReference.cache

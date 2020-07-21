@@ -59,3 +59,4 @@ D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Api\obj\Deb
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Api\obj\Debug\netcoreapp3.1\SDT.Api.dll
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Api\obj\Debug\netcoreapp3.1\SDT.Api.pdb
 D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Api\obj\Debug\netcoreapp3.1\SDT.Api.genruntimeconfig.cache
+D:\Github\Learning-ASP.NET-MVC\SDT.NetCore\ResourceOwnerPassword\SDT.Api\obj\Debug\netcoreapp3.1\SDT.Api.csprojAssemblyReference.cache
