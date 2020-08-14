@@ -1,71 +1,105 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 
 namespace SDT.WebApp
 {
-    /// <summary>
-    /// <see cref="Startup"/>类可用来定义请求处理管道和配置应用需要的服务。
-    /// </summary>
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
-        /// <summary>
-        /// Asp.Net Core自带的依赖注入容器<see cref="IServiceCollection"/>
-        /// </summary>
-        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
-            //Session是基于分布式缓存创建的，在配置Session之前要先配置DistributedCache
-            services.AddDistributedMemoryCache();
-            services.AddSession((options => options.IdleTimeout = TimeSpan.FromSeconds(10)));
+            services.AddSingleton<FactoryActivatedMiddleware>();
         }
 
-        /// <summary>
-        ///  用于配置中间件
-        /// </summary>
-        /// <param name="app"></param>
-        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
-            //默认文档服务，请求文件夹的时候将检索以下文件：default.htm、default.html、index.htm、index.html
-            app.UseDefaultFiles();
-            //可以理解为有权限访问wwwroot下的静态资源文件
-            app.UseStaticFiles();
-            //路由中间件
+
             app.UseRouting();
-            //
-            app.UseAuthentication();
-            //
-            app.UseAuthorization();
-            //
-            app.UseEndpoints(endpoints =>
+
+            //1、演示基于约定的中间件模板方式声明中间件，基本的调用方式
+            //app.UseMiddleware<RequestCultureMiddleware>();
+            //2、演示基于约定的中间件模板方式声明中间件，通过扩展方法调用方式
+            //app.UseRequestCulture();
+            //3、演示基于工厂激活的中间件的方式声明中间件，第一步：在ConfigureServices注入依赖，第二步：同基于约定的中间件模板
+            app.UseFactoryActivatedMiddleware();
+            app.Run(async (context) =>
             {
-                endpoints.MapRazorPages();
+                context.Response.ContentType = "TEXT/PLAIN;CHARSET=UTF-8";
+                await context.Response.WriteAsync($"Hello {CultureInfo.CurrentCulture.DisplayName}");
             });
         }
     }
+
+    #region 基于约定的中间件模板
+    public class RequestCultureMiddleware
+    {
+        private readonly RequestDelegate _next;
+
+        public RequestCultureMiddleware(RequestDelegate next)
+        {
+            _next = next;
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            var cultureQuery = context.Request.Query["culture"];
+            if (!string.IsNullOrWhiteSpace(cultureQuery))
+            {
+                var culture = new CultureInfo(cultureQuery);
+
+                CultureInfo.CurrentCulture = culture;
+                CultureInfo.CurrentUICulture = culture;
+            }
+
+            await _next(context);
+        }
+    }
+
+    public static class RequestCultureMiddlewareExtensions
+    {
+        public static IApplicationBuilder UseRequestCulture(
+            this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<RequestCultureMiddleware>();
+        }
+    }
+    #endregion
+
+    #region 基于工厂激活的中间件
+
+    public class FactoryActivatedMiddleware : IMiddleware
+    {
+        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+        {
+            var cultureQuery = context.Request.Query["culture"];
+            if (!string.IsNullOrWhiteSpace(cultureQuery))
+            {
+                var culture = new CultureInfo(cultureQuery);
+
+                CultureInfo.CurrentCulture = culture;
+                CultureInfo.CurrentUICulture = culture;
+            }
+            await next(context);
+        }
+    }
+
+    public static class MiddlewareExtensions
+    {
+        public static IApplicationBuilder UseFactoryActivatedMiddleware(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<FactoryActivatedMiddleware>();
+        }
+    }
+    #endregion
 }
